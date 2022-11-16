@@ -1,0 +1,7 @@
+{
+	"name": "AzureMLService721",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/2d167d50-2580-4802-8202-81bd7c738b46/resourceGroups/mlops-RG/providers/Microsoft.MachineLearningServices/workspaces/mlops-AML-WS",
+		"groupId": "amlworkspace"
+	}
+}
