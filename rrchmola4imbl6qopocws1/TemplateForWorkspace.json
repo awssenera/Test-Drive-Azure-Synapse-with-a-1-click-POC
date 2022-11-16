@@ -512,7 +512,7 @@
 					},
 					"SynapseWorkspaceName": {
 						"type": "string",
-						"defaultValue": "rrchmola4imbl6qopocws1"
+						"defaultValue": "rrchmola4imbl6qopocws1.database.windows.net"
 					},
 					"SQLDedicatedPoolName": {
 						"type": "string",
@@ -1676,6 +1676,26 @@
 			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 1')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "CREATE TABLE [dbo].[Table]\n(\n    col1 int NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = HASH (col1),\n    CLUSTERED COLUMNSTORE INDEX\n)\nGO\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "rrchmola4imbl6qopocws1p1",
+						"poolName": "rrchmola4imbl6qopocws1p1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
 			"dependsOn": []
 		}
 	]
